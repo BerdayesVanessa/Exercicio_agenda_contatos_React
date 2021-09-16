@@ -1,0 +1,46 @@
+{
+  "contatos": [
+    {
+      "id": 1,
+      "nome": "John Doe",
+      "email": "john@doe.email",
+      "telefone": "1111-1111"
+    },
+    {
+      "id": 2,
+      "nome": "Foo Bar",
+      "email": "john@doe.email",
+      "telefone": "2222-2222"
+    },
+    {
+      "id": 3,
+      "nome": "Alice and Bob",
+      "email": "john@doe.email",
+      "telefone": "3333-3333"
+    },
+    {
+      "id": "11111",
+      "nome": "11111",
+      "email": "11111",
+      "telefone": "11111"
+    },
+    {
+      "id": "22",
+      "nome": "22",
+      "email": "22",
+      "telefone": "22"
+    },
+    {
+      "id": "333",
+      "nome": "333",
+      "email": "333",
+      "telefone": "333"
+    },
+    {
+      "id": "444",
+      "nome": "444",
+      "email": "444",
+      "telefone": "444"
+    }
+  ]
+}

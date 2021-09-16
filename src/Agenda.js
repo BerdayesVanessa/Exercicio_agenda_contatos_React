@@ -1,26 +1,14 @@
 import React from "react";
 import Contatos from "./Contatos";
 
-export default class Agenda extends React.Component {
-  constructor() {
-    super();
+export default function Agenda(props) {
+    const agendaContatos = props.contatos.map((contato) => {
+      return <Contatos key={contato.id} contato={contato} />
+    })
 
-    this.state = {
-      contatos: []
-    };
+    return (
+      <table>
+      {agendaContatos}
+      </table>
+    )
   }
-
-  componentDidMount() {
-    fetch("http://localhost:3000/contatos")
-      .then((response) => response.json())
-      .then((contatos) => this.setState({ contatos: contatos }));
-  }
-
-  render() {
-    const agendaContatos = this.state.contatos.map((contato) => {
-      return <Contatos key={contato.id} contato={contato} />;
-    });
-
-    return <table>{agendaContatos}</table>;
-  }
-}

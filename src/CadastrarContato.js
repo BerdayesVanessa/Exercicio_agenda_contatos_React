@@ -22,9 +22,9 @@ export default class CadastrarContato extends React.Component {
 
   save() {
     const newContato = {
-      nome: this.state.nome
-      // email: this.state.email,
-      // telefone: this.state.telefone
+      nome: this.state.nome,
+      email: this.state.email,
+      telefone: this.state.telefone
     };
 
     fetch("http://localhost:3000/contatos", {
@@ -36,8 +36,9 @@ export default class CadastrarContato extends React.Component {
     });
 
     this.setState({ nome: "" });
-    // this.setState({ email: "" });
-    // this.setState({ telefone: "" });
+    this.setState({ email: "" });
+    this.setState({ telefone: "" });
+    this.props.cadastrarContatoCallback();
   }
 
   render() {
