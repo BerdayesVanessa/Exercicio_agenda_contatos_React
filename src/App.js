@@ -29,7 +29,7 @@ export default class App extends React.Component {
       <div className="App">
         <CadastrarContato cadastrarContatoCallback={this.fetchContatos} />
 
-        <Agenda contatos={this.state.contatos} />
+        <Agenda contatos={this.state.contatos} fetchContatosCallback={this.fetchContatos} />
       </div>
     );
   }

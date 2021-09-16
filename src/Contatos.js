@@ -2,7 +2,20 @@ import React from "react";
 
 export default class Contatos extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+
+    this.delete = this.delete.bind(this);
+  }
+
+  delete() {
+    const { id } = this.props.contato;
+    const url = `http://localhost:3000/contatos/${id}`;
+
+    fetch(url, {
+      method: "DELETE"
+    })
+
+    this.props.fetchContatosCallback()
   }
 
   render() {
@@ -28,7 +41,7 @@ export default class Contatos extends React.Component {
               <td>{email}</td>
               <td>{telefone}</td>
               <td>
-                <button>Apagar</button>
+                 <button onClick={this.delete}>Apagar</button>
               </td>
               {"  "}
               <td>
