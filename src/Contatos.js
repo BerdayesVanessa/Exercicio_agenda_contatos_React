@@ -60,6 +60,7 @@ export default class Contatos extends React.Component {
                   <EditarContato
                     contato={this.props.contato}
                     fetchContatosCallback={this.props.fetchContatosCallback}
+                    switchEdit={this.switchEdit}
                   />
                 ) : null}
               </td>

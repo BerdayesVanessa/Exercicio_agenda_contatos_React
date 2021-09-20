@@ -15,6 +15,7 @@ export default class EditarContato extends React.Component {
     this.updateNome = this.updateNome.bind(this);
     this.updateEmail = this.updateEmail.bind(this);
     this.updateTelefone = this.updateTelefone.bind(this);
+    this.update = this.update.bind(this);
   }
 
   updateNome(event) {
@@ -27,6 +28,30 @@ export default class EditarContato extends React.Component {
 
   updateTelefone(event) {
     this.setState({ telefone: event.target.value });
+  }
+
+  update() {
+    const { id } = this.props.contato;
+    const { nome, email, telefone } = this.state;
+    const url = `http://localhost:3000/contatos/${id}`;
+
+    const updateContato = {
+      nome: nome,
+      email: email,
+      telefone: telefone
+    };
+
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(updateContato)
+    });
+
+    this.props.fetchContatosCallback()
+    this.props.switchEdit()
+    
   }
 
   render() {
@@ -59,7 +84,7 @@ export default class EditarContato extends React.Component {
           />
         </label>
 
-        <button>Salvar</button>
+        <button onClick={this.update}>Atualizar</button>
       </div>
     );
   }
