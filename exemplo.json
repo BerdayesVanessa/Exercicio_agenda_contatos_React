@@ -13,16 +13,10 @@
       "telefone": "2222-2222"
     },
     {
-      "id": "21345678",
-      "nome": "21345678",
-      "email": "21345678",
-      "telefone": "21345678"
-    },
-    {
-      "id": "prueba",
-      "nome": "prueba",
-      "email": "prueba",
-      "telefone": "prueba"
+      "id": 3,
+      "nome": "Alice and Bob",
+      "email": "john@doe.email",
+      "telefone": "3333-3333"
     }
   ]
 }

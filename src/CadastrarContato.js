@@ -14,6 +14,8 @@ export default class CadastrarContato extends React.Component {
     this.save = this.save.bind(this);
   }
 
+  
+
   handleChange(event) {
     this.setState({ nome: event.target.value });
     this.setState({ email: event.target.value });
@@ -45,7 +47,7 @@ export default class CadastrarContato extends React.Component {
     return (
       <div>
         <h3> Cadastro de contato </h3>
-        <form action>
+        <form id="formulario" action>
           <div>
             <label for="id"> Id: </label>
             <input type="text"></input>
