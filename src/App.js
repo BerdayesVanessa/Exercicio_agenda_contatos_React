@@ -8,7 +8,8 @@ export default class App extends React.Component {
     super();
 
     this.state = {
-      contatos: []
+      contatos: [],
+      version: 0,
     };
 
     this.fetchContatos = this.fetchContatos.bind(this);
@@ -17,7 +18,7 @@ export default class App extends React.Component {
   fetchContatos() {
     fetch("http://localhost:3000/contatos")
       .then((response) => response.json())
-      .then((contatos) => this.setState({ contatos: contatos }));
+      .then((contatos) => this.setState({ contatos: contatos, version: this.state.version + 1 }));
   }
 
   componentDidMount() {
