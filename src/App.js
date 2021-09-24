@@ -2,23 +2,24 @@ import React from "react";
 import Agenda from "./Agenda";
 import CadastrarContato from "./CadastrarContato";
 
-
 export default class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
       contatos: [],
-      version: 0,
+      version: 0
     };
 
     this.fetchContatos = this.fetchContatos.bind(this);
   }
 
   fetchContatos() {
-    fetch("http://localhost:3000/contatos")
+    fetch("http://localhost:3001/contatos")
       .then((response) => response.json())
-      .then((contatos) => this.setState({ contatos: contatos, version: this.state.version + 1 }));
+      .then((contatos) =>
+        this.setState({ contatos: contatos, version: this.state.version + 1 })
+      );
   }
 
   componentDidMount() {
@@ -27,10 +28,13 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="container">
         <CadastrarContato cadastrarContatoCallback={this.fetchContatos} />
-
-        <Agenda contatos={this.state.contatos} fetchContatosCallback={this.fetchContatos} />
+        <p> </p>
+        <Agenda
+          contatos={this.state.contatos}
+          fetchContatosCallback={this.fetchContatos}
+        />
       </div>
     );
   }

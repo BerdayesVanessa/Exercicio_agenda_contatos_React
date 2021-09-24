@@ -15,7 +15,7 @@ export default class Contatos extends React.Component {
 
   delete() {
     const { id } = this.props.contato;
-    const url = `http://localhost:3000/contatos/${id}`;
+    const url = `http://localhost:3001/contatos/${id}`;
 
     fetch(url, {
       method: "DELETE"
@@ -33,12 +33,12 @@ export default class Contatos extends React.Component {
 
     return (
       <div>
-        <table>
+        <table class="table table-hover">
           <thead>
             <tr>
-              <th>Id</th>
-              <th>Nome</th>
-              <th>Email</th>
+              <th scope="col">Id</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Email</th>
               <th>Telefone</th>
             </tr>
           </thead>
@@ -50,11 +50,18 @@ export default class Contatos extends React.Component {
               <td>{email}</td>
               <td>{telefone}</td>
               <td>
-                <button onClick={this.delete}>Apagar</button>
+                <button class="btn btn-danger btn-sm" onClick={this.delete}>
+                  Apagar
+                </button>
               </td>
               {"  "}
               <td>
-                <button onClick={this.switchEdit}>Editar</button>
+                <button
+                  class="btn btn-success btn-sm"
+                  onClick={this.switchEdit}
+                >
+                  Editar
+                </button>
 
                 {this.state.editing ? (
                   <EditarContato

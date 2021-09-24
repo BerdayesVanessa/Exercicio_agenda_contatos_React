@@ -33,7 +33,7 @@ export default class EditarContato extends React.Component {
   update() {
     const { id } = this.props.contato;
     const { nome, email, telefone } = this.state;
-    const url = `http://localhost:3000/contatos/${id}`;
+    const url = `http://localhost:3001/contatos/${id}`;
 
     const updateContato = {
       nome: nome,
@@ -49,9 +49,8 @@ export default class EditarContato extends React.Component {
       body: JSON.stringify(updateContato)
     });
 
-    this.props.fetchContatosCallback()
-    this.props.switchEdit()
-    
+    this.props.fetchContatosCallback();
+    this.props.switchEdit();
   }
 
   render() {
@@ -61,6 +60,7 @@ export default class EditarContato extends React.Component {
           Editar Nome:
           <input
             type="text"
+            class="form-control"
             value={this.state.nome}
             onChange={this.updateNome}
           />
@@ -70,6 +70,7 @@ export default class EditarContato extends React.Component {
           Editar Email:
           <input
             type="text"
+            class="form-control"
             value={this.state.email}
             onChange={this.updateEmail}
           />
@@ -79,12 +80,13 @@ export default class EditarContato extends React.Component {
           Editar Telefone:
           <input
             type="text"
+            class="form-control"
             value={this.state.telefone}
             onChange={this.updateTelefone}
           />
         </label>
 
-        <button onClick={this.update}>Atualizar</button>
+        <button class="btn btn-primary btn-sm" onClick={this.update}>Atualizar</button>
       </div>
     );
   }
